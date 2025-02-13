@@ -12,8 +12,8 @@ RUN apt-get update -qq && \
       git \
       curl \
       nodejs \
-      yarn \
       tzdata \
+      yarn \
       && rm -rf /var/lib/apt/lists/* /var/cache/apt/archives
 
 RUN gem install bundler -v 2.4.13
@@ -22,7 +22,7 @@ COPY Gemfile Gemfile.lock ./
 RUN bundle _2.4.13_ install --jobs 4 --retry 3
 
 COPY package.json yarn.lock ./
-RUN yarn install --check-files  # Instalar pacotes do frontend
+RUN yarn install  # Remova o argumento --check-files
 
 COPY . .
 
