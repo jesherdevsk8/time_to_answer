@@ -13,7 +13,7 @@ RUN apt-get update -qq && \
       curl \
       nodejs \
       tzdata \
-      yarn \
+      npm \
       && rm -rf /var/lib/apt/lists/* /var/cache/apt/archives
 
 RUN gem install bundler -v 2.4.13
@@ -22,7 +22,7 @@ COPY Gemfile Gemfile.lock ./
 RUN bundle _2.4.13_ install --jobs 4 --retry 3
 
 COPY package.json yarn.lock ./
-RUN yarn install
+RUN npm install
 
 COPY . .
 
