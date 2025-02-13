@@ -12,11 +12,14 @@
 
 ActiveRecord::Schema.define(version: 2019_07_24_195456) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
-    t.integer "record_id", null: false
-    t.integer "blob_id", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
     t.datetime "created_at", null: false
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
@@ -54,7 +57,7 @@ ActiveRecord::Schema.define(version: 2019_07_24_195456) do
 
   create_table "answers", force: :cascade do |t|
     t.text "description", null: false
-    t.integer "question_id"
+    t.bigint "question_id"
     t.boolean "correct", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -63,7 +66,7 @@ ActiveRecord::Schema.define(version: 2019_07_24_195456) do
 
   create_table "questions", force: :cascade do |t|
     t.text "description", null: false
-    t.integer "subject_id"
+    t.bigint "subject_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["subject_id"], name: "index_questions_on_subject_id"
@@ -80,7 +83,7 @@ ActiveRecord::Schema.define(version: 2019_07_24_195456) do
     t.string "address"
     t.string "gender"
     t.date "birthdate"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "zip_code"
@@ -88,7 +91,7 @@ ActiveRecord::Schema.define(version: 2019_07_24_195456) do
   end
 
   create_table "user_statistics", force: :cascade do |t|
-    t.integer "user_id"
+    t.bigint "user_id"
     t.integer "right_questions", default: 0
     t.integer "wrong_questions", default: 0
     t.datetime "created_at", null: false
@@ -110,4 +113,8 @@ ActiveRecord::Schema.define(version: 2019_07_24_195456) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "answers", "questions"
+  add_foreign_key "questions", "subjects"
+  add_foreign_key "user_profiles", "users"
+  add_foreign_key "user_statistics", "users"
 end

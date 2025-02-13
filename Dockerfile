@@ -12,10 +12,10 @@ RUN apt-get update -qq && \
       git \
       curl \
       nodejs \
+      yarn \
       tzdata \
       && rm -rf /var/lib/apt/lists/* /var/cache/apt/archives
 
-# Instalar Bundler
 RUN gem install bundler -v 2.4.13
 
 COPY Gemfile Gemfile.lock ./
