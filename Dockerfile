@@ -12,11 +12,11 @@ RUN apt-get update -qq && \
     rm -rf /var/lib/apt/lists/* /var/cache/apt/archives
 
 # Instalar versão correta do Bundler
-RUN gem install bundler -v 2.4.10
+RUN gem install bundler
 
 # Copiar arquivos do Gemfile e instalar gems
 COPY Gemfile Gemfile.lock ./
-RUN bundle _2.4.10_ install --jobs 4 --retry 3
+RUN bundle install --jobs 4 --retry 3
 
 # Copiar arquivos do package.json e instalar dependências do frontend
 COPY package.json yarn.lock ./

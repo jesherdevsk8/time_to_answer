@@ -56,7 +56,7 @@ GEM
       msgpack (~> 1.2)
     builder (3.3.0)
     byebug (11.1.3)
-    capybara (3.39.2)
+    capybara (3.36.0)
       addressable
       matrix
       mini_mime (>= 0.1.3)
@@ -65,6 +65,7 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
+    childprocess (4.1.0)
     chromedriver-helper (2.1.1)
       archive-zip (~> 0.10)
       nokogiri (~> 1.8)
@@ -90,7 +91,7 @@ GEM
       warden (~> 1.2.3)
     erubi (1.13.0)
     execjs (2.10.0)
-    faker (3.4.2)
+    faker (2.22.0)
       i18n (>= 1.8.11, < 2)
     faraday (2.8.1)
       base64
@@ -144,7 +145,7 @@ GEM
     matrix (0.4.2)
     method_source (1.0.0)
     mini_mime (1.1.2)
-    mini_portile2 (2.8.1)
+    mini_portile2 (2.8.8)
     minitest (5.18.0)
     msgpack (1.7.0)
     multi_json (1.15.0)
@@ -158,8 +159,7 @@ GEM
     net-smtp (0.5.0)
       net-protocol
     nio4r (2.7.4)
-    nokogiri (1.15.6)
-      mini_portile2 (~> 2.8.2)
+    nokogiri (1.13.10-x86_64-linux)
       racc (~> 1.4)
     opensearch-ruby (3.4.0)
       faraday (>= 1.0, < 3)
@@ -173,7 +173,7 @@ GEM
     prawn (2.4.0)
       pdf-core (~> 0.9.0)
       ttfunk (~> 1.7)
-    prawn-rails (1.4.2)
+    prawn-rails (1.6.0)
       actionview (>= 3.1.0)
       activesupport (>= 3.1.0)
       prawn
@@ -183,9 +183,9 @@ GEM
     pry (0.14.2)
       coderay (~> 1.1)
       method_source (~> 1.0)
-    pry-byebug (3.10.1)
+    pry-byebug (3.8.0)
       byebug (~> 11.0)
-      pry (>= 0.13, < 0.15)
+      pry (~> 0.10)
     public_suffix (5.1.1)
     puma (6.4.3)
       nio4r (~> 2.0)
@@ -212,9 +212,8 @@ GEM
       activesupport (>= 5.0.0)
       minitest
       nokogiri (>= 1.6)
-    rails-html-sanitizer (1.6.0)
-      loofah (~> 2.21)
-      nokogiri (~> 1.14)
+    rails-html-sanitizer (1.5.0)
+      loofah (~> 2.19, >= 2.19.1)
     rails-i18n (5.1.3)
       i18n (>= 0.7, < 2)
       railties (>= 5.0, < 6)
@@ -299,10 +298,10 @@ GEM
     searchkick (5.2.4)
       activemodel (>= 5.2)
       hashie
-    selenium-webdriver (4.9.0)
+    selenium-webdriver (4.1.0)
+      childprocess (>= 0.5, < 5.0)
       rexml (~> 3.2, >= 3.2.5)
-      rubyzip (>= 1.2.2, < 3.0)
-      websocket (~> 1.0)
+      rubyzip (>= 1.2.2)
     simple_form (5.3.1)
       actionpack (>= 5.2)
       activemodel (>= 5.2)
@@ -318,7 +317,7 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
-    sqlite3 (1.7.3)
+    sqlite3 (1.6.9)
       mini_portile2 (~> 2.8.0)
     terminal-table (3.0.2)
       unicode-display_width (>= 1.1.1, < 3)
@@ -328,8 +327,7 @@ GEM
     timeout (0.4.1)
     trix (0.10.1)
       rails
-    ttfunk (1.8.0)
-      bigdecimal (~> 3.1)
+    ttfunk (1.7.0)
     tty-cursor (0.7.1)
     tty-spinner (0.9.3)
       tty-cursor (~> 0.7)
@@ -345,7 +343,6 @@ GEM
       activemodel (>= 5.0)
       bindex (>= 0.4.0)
       railties (>= 5.0)
-    websocket (1.2.11)
     websocket-driver (0.7.6)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
@@ -353,7 +350,6 @@ GEM
       nokogiri (~> 1.8)
 
 PLATFORMS
-  ruby
   x86_64-linux
 
 DEPENDENCIES
@@ -396,7 +392,7 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 RUBY VERSION
-   ruby 2.7.8p225
+   ruby 2.6.7p197
 
 BUNDLED WITH
    2.4.10
