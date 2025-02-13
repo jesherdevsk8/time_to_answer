@@ -22,7 +22,7 @@ COPY Gemfile Gemfile.lock ./
 RUN bundle _2.4.13_ install --jobs 4 --retry 3
 
 COPY package.json yarn.lock ./
-RUN yarn install  # Remova o argumento --check-files
+RUN yarn install
 
 COPY . .
 
