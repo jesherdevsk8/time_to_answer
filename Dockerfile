@@ -11,9 +11,12 @@ RUN apt-get update -qq && \
     apt-get install --no-install-recommends -y build-essential libpq-dev git curl nodejs && \
     rm -rf /var/lib/apt/lists/* /var/cache/apt/archives
 
+# Instalar versão correta do Bundler
+RUN gem install bundler -v 2.4.10
+
 # Copiar arquivos do Gemfile e instalar gems
 COPY Gemfile Gemfile.lock ./
-RUN bundle install --jobs 4 --retry 3 && \
+RUN bundle _2.4.10_ install --jobs 4 --retry 3 && \
     rm -rf ~/.bundle/ /usr/local/bundle/cache
 
 # Copiar arquivos do package.json e instalar dependências do frontend
