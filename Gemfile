@@ -56,4 +56,5 @@ end
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
+gem 'nokogiri', '~> 1.13', '>= 1.13.10'
 gem 'opensearch-ruby', '~> 3.4'
