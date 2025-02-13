@@ -16,8 +16,7 @@ RUN gem install bundler -v 2.4.10
 
 # Copiar arquivos do Gemfile e instalar gems
 COPY Gemfile Gemfile.lock ./
-RUN bundle _2.4.10_ install --jobs 4 --retry 3 && \
-    rm -rf ~/.bundle/ /usr/local/bundle/cache
+RUN bundle _2.4.10_ install --jobs 4 --retry 3
 
 # Copiar arquivos do package.json e instalar dependências do frontend
 COPY package.json yarn.lock ./
