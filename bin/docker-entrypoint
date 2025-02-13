@@ -1,0 +1,17 @@
+#!/bin/bash -e
+
+RAILS_ENV=${RAILS_ENV:-development}
+
+if [ "$1" == "./bin/rails" ] && [ "$2" == "server" ]; then
+  if [ "$RAILS_ENV" == "development" ]; then
+    ./bin/rails db:create 2>/dev/null
+  fi
+  
+  ./bin/rails db:migrate
+
+  if [ "$RAILS_ENV" == "production" ]; then
+    ./bin/rails assets:precompile
+  fi
+fi
+
+exec "$@"

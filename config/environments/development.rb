@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -7,12 +9,12 @@ Rails.application.configure do
   # Mailtrap Config
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    :user_name => 'ebbfe7d55834b6',
-    :password => '7b0efb02b5793b',
-    :address => 'smtp.mailtrap.io',
-    :domain => 'smtp.mailtrap.io',
-    :port => '2525',
-    :authentication => :cram_md5
+    user_name: 'ebbfe7d55834b6',
+    password: '7b0efb02b5793b',
+    address: 'smtp.mailtrap.io',
+    domain: 'smtp.mailtrap.io',
+    port: '2525',
+    authentication: :cram_md5
   }
 
   # In the development environment your application's code is reloaded on
@@ -28,8 +30,11 @@ Rails.application.configure do
 
   # Enable/disable caching. By default caching is disabled.
   # Run rails dev:cache to toggle caching.
-  
-  config.cache_store = :redis_cache_store
+
+  config.cache_store = :redis_cache_store, {
+    url: ENV.fetch('redis://localhost:6379/0', nil),
+    namespace: 'time_to_answer_development'
+  }
 
   # Store uploaded files on the local file system (see config/storage.yml for options)
   config.active_storage.service = :local

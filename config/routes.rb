@@ -17,10 +17,10 @@ Rails.application.routes.draw do
     resources :subjects # Assuntos/Áreas
     resources :questions # Perguntas
   end
-  
-  devise_for :admins, skip:  [:registrations]
+
+  devise_for :admins, skip: [:registrations]
   devise_for :users
- 
+
   get 'inicio', to: 'site/welcome#index'
   get 'backoffice', to: 'admins_backoffice/welcome#index'
 

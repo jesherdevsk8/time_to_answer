@@ -1,0 +1,48 @@
+AllCops:
+  TargetRubyVersion: 2.6
+  NewCops: enable # Opt-in automático para novos cops
+
+Style/StringLiterals:
+  EnforcedStyle: single_quotes
+  SupportedStyles: ['single_quotes', 'double_quotes']
+
+Style/StringLiteralsInInterpolation:
+  EnforcedStyle: double_quotes
+  SupportedStyles: ['single_quotes', 'double_quotes']
+
+Layout/LineLength:
+  Max: 120 # Corrigido para Layout/LineLength
+
+# Ativa explicitamente os novos cops sugeridos
+Gemspec/DeprecatedAttributeAssignment:
+  Enabled: true
+
+Gemspec/DevelopmentDependencies:
+  Enabled: true
+
+Gemspec/RequireMFA:
+  Enabled: true
+
+Layout/LineContinuationLeadingSpace:
+  Enabled: true
+
+Layout/LineContinuationSpacing:
+  Enabled: true
+
+Layout/LineEndStringConcatenationIndentation:
+  Enabled: true
+
+Layout/SpaceBeforeBrackets:
+  Enabled: true
+
+Lint/AmbiguousAssignment:
+  Enabled: true
+
+Lint/AmbiguousOperatorPrecedence:
+  Enabled: true
+
+Lint/AmbiguousRange:
+  Enabled: true
+
+Lint/ConstantOverwrittenInRescue:
+  Enabled: true

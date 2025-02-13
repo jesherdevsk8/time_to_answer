@@ -6,6 +6,7 @@
     "bootstrap-growl-ifightcrime": "^1.1.0",
     "fastclick": "1.0.6",
     "font-awesome": "4.6.3",
+    "heroku": "^8.0.6",
     "jquery": "3.3.1",
     "jquery-ui": "^1.12.1",
     "malihu-custom-scrollbar-plugin": "3.1.3",
