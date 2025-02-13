@@ -11,10 +11,14 @@ RUN apt-get update -qq && \
       libpq-dev \
       git \
       curl \
-      nodejs \
-      tzdata \
-      npm \
-      && rm -rf /var/lib/apt/lists/* /var/cache/apt/archives
+      tzdata && \
+      rm -rf /var/lib/apt/lists/* /var/cache/apt/archives
+
+RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
+    apt-get install -y nodejs && \
+    npm install -g npm@latest
+
+RUN node -v && npm -v
 
 RUN gem install bundler -v 2.4.13
 
@@ -22,6 +26,7 @@ COPY Gemfile Gemfile.lock ./
 RUN bundle _2.4.13_ install --jobs 4 --retry 3
 
 COPY package.json yarn.lock ./
+
 RUN npm install
 
 COPY . .
