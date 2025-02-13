@@ -21,6 +21,9 @@ RUN gem install bundler -v 2.4.13
 COPY Gemfile Gemfile.lock ./
 RUN bundle _2.4.13_ install --jobs 4 --retry 3
 
+COPY package.json yarn.lock ./
+RUN yarn install --check-files  # Instalar pacotes do frontend
+
 COPY . .
 
 RUN groupadd --system --gid 1000 rails && \
